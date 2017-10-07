@@ -20,7 +20,8 @@
     }
 
     function handleVideo(stream){
-      document.querySelector('#vidDisplay').src = window.URL.createObjectURL(stream);
+      document.getElementById('vidDisplay').src = window.URL.createObjectURL(stream);
+      document.getElementById('vidDisplay').play();
     }
 
     function videoError(e){
