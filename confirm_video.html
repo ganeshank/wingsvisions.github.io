@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Display Webcam Stream</title>
+  
+</head>
+  
+<body>
+  <center>
+    <video id="vidDisplay" autoplay="true">
+        no video support
+    </video>
+  </center>
+
+  <script type="text/javascript">
+    window.URL = window.URL || window.webkitURL;
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+    var streamRecorder;
+    var webcamstream;
+
+    if(navigator.getUserMedia){
+      navigator.getUserMedia({video:true}, handleVideo, videoError);
+    }
+
+    function handleVideo(stream){
+      document.getElementById('vidDisplay').src = window.URL.createObjectURL(stream);
+      webcamstream = stream;
+      document.getElementById('vidDisplay').play();
+    }
+
+function startRecording() {
+    streamRecorder = webcamstream.record();
+    setTimeout(stopRecording, 10000);
+}
+function stopRecording() {
+    alert("stop");
+}
+
+    function videoError(e){
+      alert("There is some problem");
+    }
+  </script>
+</body>
+</html>
