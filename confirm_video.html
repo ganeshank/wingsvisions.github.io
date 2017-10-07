@@ -10,7 +10,7 @@
     <video id="vidDisplay" autoplay="true">
         no video support
     </video>
-     <button onclick="startRecording():">record</button>
+    <button onclick="startRecording():">record</button>
   </center>
 
   <script type="text/javascript">
@@ -31,8 +31,9 @@
     }
 
 function startRecording() {
+  alert("start");
     streamRecorder = webcamstream.record();
-    setTimeout(stopRecording, 10000);
+    setTimeout(stopRecording, 5000);
 }
 function stopRecording() {
     alert("stop");
