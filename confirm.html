@@ -13,7 +13,8 @@
   </center>
 
   <script type="text/javascript">
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mediaDevices.getUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+    window.URL = window.URL || window.webkitURL;
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
 
     if(navigator.getUserMedia){
       navigator.getUserMedia({video:true}, handleVideo, videoError);
@@ -25,7 +26,7 @@
     }
 
     function videoError(e){
-      alert("There is some problem");
+      alert("problem");
     }
   </script>
 </body>
