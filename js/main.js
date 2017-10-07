@@ -139,6 +139,7 @@ function play() {
 }
 
 function download() {
+  try{
   var blob = new Blob(recordedBlobs, {type: 'video/webm'});
   var url = window.URL.createObjectURL(blob);
   var a = document.createElement('a');
@@ -151,4 +152,7 @@ function download() {
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
   }, 100);
+  }catch(err){
+    alert(err); 
+  }
 }
