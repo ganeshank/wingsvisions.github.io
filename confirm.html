@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Display Webcam Stream</title>
+  
+</head>
+  
+<body>
+  <center>
+    <video id="vidDisplay" autoplay="true">
+        no video support
+    </video>
+  </center>
+
+  <script type="text/javascript">
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+    if(navigator.getUserMedia){
+      navigator.getUserMedia({video:true}, handleVideo, videoError);
+    }
+
+    function handleVideo(stream){
+      document.querySelector('#vidDisplay').src = window.URL.createObjectURL(stream);
+    }
+
+    function videoError(e){
+      alert("There is some problem");
+    }
+  </script>
+</body>
+</html>
